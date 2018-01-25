@@ -43,8 +43,13 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
+    # PAGINATION
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 1
+    'PAGE_SIZE': 1,
+    # DISABLE DEFAULT BROWSABLE API
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
 }
 
 MIDDLEWARE = [
