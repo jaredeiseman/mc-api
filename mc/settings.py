@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    # THIRD PARTY APPS BELOW THIS LINE
     'rest_framework',
     'api',
     'rest_framework_swagger',
