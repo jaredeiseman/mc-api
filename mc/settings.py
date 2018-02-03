@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,14 +38,42 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # THIRD PARTY APPS BELOW THIS LINE
     'rest_framework',
     'api',
     'rest_framework_swagger',
+    'djoser',
 ]
 
 REST_FRAMEWORK = {
+    # PAGINATION
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 1
+    'PAGE_SIZE': 1,
+    # DISABLE DEFAULT BROWSABLE API
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    # CUSTOM AUTHENTICATION STRATEGY
+    # Uses JWT Tokens, full endpoint list available after authenticating in swagger
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+
+DJOSER = {
+    'SERIALIZERS': {
+        'create_user': 'api.serializers.UserSerializer',
+        'user': 'api.serializers.UserSerializer',
+    }
+}
+
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7)
 }
 
 MIDDLEWARE = [
@@ -77,14 +106,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mc.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
+# Database config
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mamas-connect',
+        'USER': 'mcadmin',
+        'PASSWORD': 'mcadminpassword',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 

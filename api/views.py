@@ -1,7 +1,8 @@
 from rest_framework import viewsets
-from api.models import TestModel
-from api.serializers import TestModelSerializer
+from api.serializers import *
+from api.permissions import *
 
-class TestModelViewSet(viewsets.ModelViewSet):
-    queryset = TestModel.objects.all()
-    serializer_class = TestModelSerializer
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+    permission_classes = (IsOwnerOrAdmin,)
