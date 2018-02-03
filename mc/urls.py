@@ -7,8 +7,9 @@ from rest_framework_jwt.views import obtain_jwt_token
 
 schema_view = get_swagger_view(title='Mamas Connect API')
 
-router = routers.DefaultRouter()
-router.register(r'test', views.TestModelViewSet)
+router = routers.DefaultRouter(trailing_slash=False)
+
+router.register(r'profile', views.ProfileViewSet)
 
 urlpatterns = [
     url(r'^api/v1/', include(router.urls)),

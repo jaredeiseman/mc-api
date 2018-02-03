@@ -1,5 +1,19 @@
 from django.contrib import admin
-from api.models import TestModel
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.models import User
+from api.models import *
+
+# Define custom forms here.
+class ProfileInline(admin.StackedInline):
+    model = Profile
+    can_delete = False
+    verbose_name_plural = 'profile'
+
+class UserAdmin(BaseUserAdmin):
+    inlines = (ProfileInline,)
+
 
 # Register your models here.
-admin.site.register(TestModel)
+# re-register User/UserAdmin to include StackedInline
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
