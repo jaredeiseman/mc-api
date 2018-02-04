@@ -110,10 +110,10 @@ WSGI_APPLICATION = 'mc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mcstaging',
-        'USER': 'mcstaginguser',
+        'NAME': 'ebdb',
+        'USER': 'mcstagingdb',
         'PASSWORD': 'mcstagingpassword',
-        'HOST': 'mcstaging.ci7m67l2ckxn.us-west-2.rds.amazonaws.com',
+        'HOST': 'aa1ark15cete9au.ci7m67l2ckxn.us-west-2.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
