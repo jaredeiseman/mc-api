@@ -167,3 +167,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = './static/'
+STATIC_DIRS = ['/Users/jaredeiseman/.virtualenvs/mc/lib/python3.6/site-packages/rest_framework_swagger/static']

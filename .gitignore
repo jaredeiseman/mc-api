@@ -4,7 +4,6 @@ migrations
 .DS_Store
 
 include/
-Lib/
 Scripts/
 tcl/
 pip-selfcheck.json
