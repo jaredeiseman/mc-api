@@ -110,13 +110,23 @@ WSGI_APPLICATION = 'mc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mamas-connect',
-        'USER': 'mcadmin',
-        'PASSWORD': 'mcadminpassword',
-        'HOST': '127.0.0.1',
+        'NAME': 'mcstaging',
+        'USER': 'mcstaging',
+        'PASSWORD': 'mcstagingpassword',
+        'HOST': 'mcstagingdb.c8hzf8mliwev.us-east-2.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'mamas-connect',
+#         'USER': 'mcadmin',
+#         'PASSWORD': 'mcadminpassword',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
