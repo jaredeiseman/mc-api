@@ -111,9 +111,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mcstaging',
-        'USER': 'mcstaging',
+        'USER': 'mcstaginguser',
         'PASSWORD': 'mcstagingpassword',
-        'HOST': 'mcstagingdb.c8hzf8mliwev.us-east-2.rds.amazonaws.com',
+        'HOST': 'mcstaging.ci7m67l2ckxn.us-west-2.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
